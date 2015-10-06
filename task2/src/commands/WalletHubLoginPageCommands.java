@@ -6,16 +6,16 @@ import enums.PasswordsEnums;
 import enums.UsernameEnums;
 import browser.Browser;
 
-public class AdminLoginPageCommands {
+public class WalletHubLoginPageCommands {
 	private String username;
 	private String password;
 
-	public AdminLoginPageCommands(UsernameEnums firstMethodparam) {
+	public WalletHubLoginPageCommands(UsernameEnums firstMethodparam) {
 		this.username = firstMethodparam.getUsername();
 	}
 
 
-	public AdminLoginPageCommands withPassword(PasswordsEnums password) {
+	public WalletHubLoginPageCommands withPassword(PasswordsEnums password) {
 		this.password = password.getPassword();
 		return this;
 	}
@@ -24,7 +24,7 @@ public class AdminLoginPageCommands {
 	public void login() {
 		Browser.instance.findElement(By.name("username")).sendKeys(this.username);
 		Browser.instance.findElement(By.name("password")).sendKeys(this.password);
-		Browser.instance.findElement(By.linkText("Login")).click();
+		Browser.instance.findElement(By.xpath("//input[@value='Login']")).click();
 	}
 
 }

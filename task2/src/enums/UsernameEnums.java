@@ -1,7 +1,7 @@
 package enums;
 
 public enum UsernameEnums {
-	ADMINISTRATOR("admin"), REGULAR_USER("guest"), MODERATOR("moderator");
+	ADMINISTRATOR("admin"), REGULAR_USER("bss.stoyanov@gmail.com");
 
 	private String username;
 	

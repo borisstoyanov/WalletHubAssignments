@@ -1,8 +1,7 @@
 package enums;
 
 public enum PasswordsEnums {
-	ADMINISTRATOR_PASSWORD("parola"), REGULAR_USER_PASSWORD("reguserpassword"),
-	MODERATOR_PASSWORD("moderatorpass");
+	ADMINISTRATOR_PASSWORD("pass"), REGULAR_USER_PASSWORD("password5");
 	
 	private String password;
 	
