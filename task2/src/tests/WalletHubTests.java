@@ -10,6 +10,9 @@ import enums.PasswordsEnums;
 import enums.UsernameEnums;
 import pageobjects.WalletHubDashboardPage;
 import pageobjects.WalletHubLoginPage;
+import pageobjects.WalletHubProfilePage;
+import pageobjects.WalletHubTestInsuranceCompanyPage;
+import pageobjects.WalletHubWriteReviewPage;
 
 public class WalletHubTests {
 
@@ -23,10 +26,35 @@ public class WalletHubTests {
 			.login();
 		
 		Assert.assertTrue(WalletHubDashboardPage.isAt());
+		
+		WalletHubTestInsuranceCompanyPage.Goto();
+		Assert.assertTrue(WalletHubTestInsuranceCompanyPage.isAt());
+
 	}
 	
 	@Test
-	public void canLogin(){
+	public void canLogin() throws Exception{
+		WalletHubWriteReviewPage review = WalletHubTestInsuranceCompanyPage.rateCompany("5");
+		
+		Assert.assertTrue(WalletHubWriteReviewPage.isAt());
+		
+		review.changePolicy("Health");
+		
+		String reviewText = review.writeFullReviewAndSubmit();
+		
+		WalletHubProfilePage profile = new WalletHubProfilePage();
+		
+		WalletHubProfilePage.Goto();
+		
+		Assert.assertTrue(WalletHubProfilePage.isAt());
+		
+		profile.clickReviewsAndVerifyReview(reviewText);
+		
+		profile.clickActivityAndVerifyActivity();
+
+		
+		
+		
 		
 	}
 	
