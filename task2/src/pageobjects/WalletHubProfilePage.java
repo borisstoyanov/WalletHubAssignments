@@ -30,7 +30,7 @@ public class WalletHubProfilePage {
 	}
 
 	public void clickReviewsAndVerifyReview(String reviewText) {
-		Browser.instance.findElement(By.xpath("//a[text()='Reviews']")).click();
+		Browser.instance.findElement(By.xpath("div[@class='wh-profile-content vcard']//a[text()='Reviews']")).click();
 		
 		WebDriverWait wait = new WebDriverWait(Browser.instance, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='reviews']")));
@@ -46,7 +46,7 @@ public class WalletHubProfilePage {
 		WebDriverWait wait = new WebDriverWait(Browser.instance, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='activity']")));	
 				
-		List<WebElement> list = Browser.instance.findElements(By.xpath("//*[contains(text(),'boris1 just submitted an Excellent rating f… Test Insurance Company ')]"));
+		List<WebElement> list = Browser.instance.findElements(By.xpath("//div[contains(id(),'activity_content')]//strong[text()='boris1']"));
 		Assert.assertTrue("Text not found!", list.size() > 0);
 	}
 
