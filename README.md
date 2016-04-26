@@ -1,0 +1,3 @@
+# WalletHubAssignments
+
+Some Code Assignments
